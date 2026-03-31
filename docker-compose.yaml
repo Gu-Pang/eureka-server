@@ -1,5 +1,14 @@
 services:
-  euraka-server:
-    build: .
+  eureka-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: eureka-server
     ports:
       - "8761:8761"
+    networks:
+      - gupang-network
+
+networks:
+  gupang-network:
+    external: true
